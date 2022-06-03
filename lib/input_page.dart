@@ -26,6 +26,7 @@ class _InputPageState extends State<InputPage> {
    Gender? selectedGender ; 
    int height = 180 ;
    int weight = 60 ;  
+   int age = 20 ; 
 
 
   @override
@@ -152,10 +153,45 @@ class _InputPageState extends State<InputPage> {
                       Expanded(
                          child: ResuableCard( 
                             color: activeCardColor,
-                            cardChild:  iconContent(
-                                 icon: FontAwesomeIcons.venus,
-                                 lable: "FEMALE",)))]),
-              )])); 
+                            cardChild: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                              const  Text('Age', style: TextStyle(fontSize: 18.0 , color: Color(0xFF8D8E98)),),
+                              Text(age.toString() , style: const TextStyle(fontSize: 50 , fontWeight: FontWeight.w900),),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children:  <Widget>[
+                                  FloatingActionButton(
+                                    backgroundColor: const Color(0xFF4C4F5E),
+                                    onPressed: () {
+                                      setState(() {
+                                        age-- ;
+                                      });
+                                    },
+                                    child: const Icon(FontAwesomeIcons.minus , color: Colors.white,),
+                                  ),
+                                  const SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  FloatingActionButton(
+                                     backgroundColor: const Color(0xFF4C4F5E),
+                                    onPressed: () {
+                                      setState(() {
+                                        age++;  
+                                      });
+                                    },
+                                    child: const Icon(FontAwesomeIcons.plus , color: Colors.white,),
+                                    )
+                                ],
+                              ) 
+                              ])
+                                 )
+                                 )]
+                                 ),
+              )
+              ]
+              )
+              ); 
   }
 }
 
